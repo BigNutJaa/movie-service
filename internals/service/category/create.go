@@ -3,8 +3,8 @@ package category
 import (
 	"context"
 
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/entity"
-	model "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/model/category"
+	"github.com/BigNutJaa/movie-service/internals/entity"
+	model "github.com/BigNutJaa/movie-service/internals/model/category"
 )
 
 func (s *CategoryService) Create(ctx context.Context, request *model.Request) (int, error) {

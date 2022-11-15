@@ -1,7 +1,7 @@
-package movie
+package moving
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/movie/wrapper"
+	"github.com/BigNutJaa/movie-service/internals/service/moving/wrapper"
 )
 
 type Controller struct {

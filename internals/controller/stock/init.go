@@ -1,7 +1,7 @@
-package category
+package stock
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/category/wrapper"
+	"github.com/BigNutJaa/movie-service/internals/service/stock/wrapper"
 )
 
 type Controller struct {

@@ -1,7 +1,7 @@
-package delta
+package alpha
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/delta/wrapper"
+	"github.com/BigNutJaa/movie-service/internals/service/alpha/wrapper"
 )
 
 type Controller struct {

@@ -2,7 +2,7 @@ package wrapper
 
 import (
 	"context"
-	model "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/model/warehouse"
+	model "github.com/BigNutJaa/movie-service/internals/model/warehouse"
 
 	"github.com/opentracing/opentracing-go"
 )

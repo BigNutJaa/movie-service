@@ -1,7 +1,7 @@
 package users
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/users/wrapper"
+	"github.com/BigNutJaa/movie-service/internals/service/users/wrapper"
 )
 
 type Controller struct {

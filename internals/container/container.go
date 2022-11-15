@@ -1,30 +1,40 @@
 package container
 
 import (
+	controllerAlpha "github.com/BigNutJaa/movie-service/internals/controller/alpha"
+	controllerDelta "github.com/BigNutJaa/movie-service/internals/controller/delta"
+	controllerMovie "github.com/BigNutJaa/movie-service/internals/controller/movie"
+	controllerMoving "github.com/BigNutJaa/movie-service/internals/controller/moving"
+	"github.com/BigNutJaa/movie-service/internals/service/alpha"
+	"github.com/BigNutJaa/movie-service/internals/service/delta"
+	"github.com/BigNutJaa/movie-service/internals/service/movie"
+	"github.com/BigNutJaa/movie-service/internals/service/moving"
+	"github.com/BigNutJaa/movie-service/internals/service/stock"
 	"net/http"
 
+	controllerUsers "github.com/BigNutJaa/movie-service/internals/controller/users"
+	"github.com/BigNutJaa/movie-service/internals/service/users"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	controllerUsers "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/controller/users"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/users"
 	"github.com/robowealth-mutual-fund/shared-utility/validator"
 	log "github.com/sirupsen/logrus"
 	"go.uber.org/dig"
 
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/config"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/controller"
-	controllerCategory "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/controller/category"
-	controllerProduct "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/controller/product"
-	warehouseController "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/controller/warehouse"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/infrastructure/database"
-	grpcServer "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/infrastructure/grpcServer"
-	httpServer "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/infrastructure/httpServer"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/infrastructure/jaeger"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/repository/postgres"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/category"
-	serviceProduct "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/product"
-	warehouseService "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/warehouse"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/utils"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/utils/logrus"
+	"github.com/BigNutJaa/movie-service/internals/config"
+	"github.com/BigNutJaa/movie-service/internals/controller"
+	controllerCategory "github.com/BigNutJaa/movie-service/internals/controller/category"
+	controllerProduct "github.com/BigNutJaa/movie-service/internals/controller/product"
+	controllerStock "github.com/BigNutJaa/movie-service/internals/controller/stock"
+	warehouseController "github.com/BigNutJaa/movie-service/internals/controller/warehouse"
+	"github.com/BigNutJaa/movie-service/internals/infrastructure/database"
+	grpcServer "github.com/BigNutJaa/movie-service/internals/infrastructure/grpcServer"
+	httpServer "github.com/BigNutJaa/movie-service/internals/infrastructure/httpServer"
+	"github.com/BigNutJaa/movie-service/internals/infrastructure/jaeger"
+	"github.com/BigNutJaa/movie-service/internals/repository/postgres"
+	"github.com/BigNutJaa/movie-service/internals/service/category"
+	serviceProduct "github.com/BigNutJaa/movie-service/internals/service/product"
+	warehouseService "github.com/BigNutJaa/movie-service/internals/service/warehouse"
+	"github.com/BigNutJaa/movie-service/internals/utils"
+	"github.com/BigNutJaa/movie-service/internals/utils/logrus"
 )
 
 type Container struct {
@@ -54,6 +64,16 @@ func (c *Container) Configure() error {
 		warehouseService.NewService,
 		users.NewService,
 		controllerUsers.NewController,
+		stock.NewService,
+		controllerStock.NewController,
+		movie.NewService,
+		moving.NewService,
+		delta.NewService,
+		alpha.NewService,
+		controllerAlpha.NewController,
+		controllerMovie.NewController,
+		controllerMoving.NewController,
+		controllerDelta.NewController,
 		controllerCategory.NewController,
 		warehouseController.NewController,
 	}
@@ -85,7 +105,7 @@ func (c *Container) Start() error {
 	return nil
 }
 
-//MigrateDB ...
+// MigrateDB ...
 func (c *Container) MigrateDB() error {
 	log.Info("Start Container DB")
 

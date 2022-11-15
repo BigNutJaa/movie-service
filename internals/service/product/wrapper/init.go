@@ -3,7 +3,7 @@ package wrapper
 import (
 	"go.uber.org/dig"
 
-	service "github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/product"
+	service "github.com/BigNutJaa/movie-service/internals/service/product"
 )
 
 type Wrapper struct {

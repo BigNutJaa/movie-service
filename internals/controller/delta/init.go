@@ -1,7 +1,7 @@
-package moving
+package delta
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/service/moving/wrapper"
+	"github.com/BigNutJaa/movie-service/internals/service/delta/wrapper"
 )
 
 type Controller struct {

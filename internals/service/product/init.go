@@ -1,7 +1,7 @@
 package wrapper
 
 import (
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/repository/postgres"
+	"github.com/BigNutJaa/movie-service/internals/repository/postgres"
 )
 
 type ProductService struct {

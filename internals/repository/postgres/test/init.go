@@ -5,10 +5,10 @@ package test
 
 import (
 	"context"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/config"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/entity"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/infrastructure/database"
-	"github.com/robowealth-mutual-fund/blueprint-roa-golang/internals/repository/postgres"
+	"github.com/BigNutJaa/movie-service/internals/config"
+	"github.com/BigNutJaa/movie-service/internals/entity"
+	"github.com/BigNutJaa/movie-service/internals/infrastructure/database"
+	"github.com/BigNutJaa/movie-service/internals/repository/postgres"
 	"github.com/stretchr/testify/suite"
 )
 
